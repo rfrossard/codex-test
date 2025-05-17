@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+  <title>{{ survey.title }}</title>
+  <link rel='stylesheet' href='{{ url_for('static', filename='style.css') }}'>
+</head>
+<body>
+  <h1>{{ survey.title }}</h1>
+  <form method="post">
+    {% for q in survey.questions %}
+      <label>{{ q.text }}<br>
+        <input type="text" name="q{{ loop.index0 }}">
+      </label><br>
+    {% endfor %}
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

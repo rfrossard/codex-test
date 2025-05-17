@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+<head>
+  <title>Create Survey</title>
+  <link rel='stylesheet' href='{{ url_for('static', filename='style.css') }}'>
+  <script>
+    function addQuestion() {
+      const container = document.getElementById('questions');
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.name = 'question';
+      input.placeholder = 'Question text';
+      container.appendChild(document.createElement('br'));
+      container.appendChild(input);
+    }
+  </script>
+</head>
+<body>
+  <h1>Create Survey</h1>
+  <form method="post">
+    <label>Title:<input type="text" name="title" required></label><br>
+    <label>Emails (comma separated):<br>
+      <textarea name="emails" rows="4" cols="50"></textarea>
+    </label><br>
+    <div id="questions">
+      <h3>Questions</h3>
+      <input type="text" name="question" placeholder="Question text">
+    </div>
+    <button type="button" onclick="addQuestion()">Add Question</button><br>
+    <button type="submit">Create Survey</button>
+  </form>
+</body>
+</html>
